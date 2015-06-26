@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+    <head>
+        <script src="framer.js"></script>        
+
+        <style type="text/css">
+            body{
+                background-color: #5cffbe;
+                font-size: 45px;
+                font-family: sans-serif;
+                text-align: center;                
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <script>
+            var device = new Framer.DeviceComponent();
+
+            device.setupContext();
+            device.deviceType = "iphone-5s-silver";
+            device.setDeviceScale(0.3);
+
+            var pageComponent = new PageComponent({
+	            width: Screen.width,
+	            height: Screen.height
+            });
+
+            var image1 = new Layer({
+	            width: Screen.width,
+	            height: Screen.height,
+	            image: "pink.jpg"
+            });
+
+            var image2 = new Layer({
+	            width: Screen.width,
+	            height: Screen.height,
+	            image: "grey.jpg"
+            });
+
+            var image3 = new Layer({
+	            width: Screen.width,
+	            height: Screen.height,
+	            image: "blue.jpg"
+            });
+
+            pageComponent.addPage(image1); // Add image1
+            pageComponent.addPage(image2); // Add image2
+            pageComponent.addPage(image3); // Add image3
+        </script>
+
+    </body>
+</html>

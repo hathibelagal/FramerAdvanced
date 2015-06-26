@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+    <head>
+        <script src="framer.js"></script>        
+
+        <style type="text/css">
+            body{
+                background-color: #5cffbe;
+                font-size: 45px;
+                font-family: sans-serif;
+                text-align: center;                
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <script>
+            var device = new Framer.DeviceComponent();
+
+            device.setupContext();
+            device.deviceType = "iphone-5s-silver";
+            device.setDeviceScale(0.3);
+
+            var mylayer = new Layer({
+                x: 100,
+                width: 200,
+                height: 200,
+                backgroundColor: "#2196F3",
+                borderRadius: 100,
+                y: 100
+            });
+
+            var animation1 = new Animation({
+	            layer: mylayer, // name of the layer that should
+				                // be animated
+
+	            // Properties that should change
+	            properties: {
+		            x: 400
+	            }
+            });
+
+            animation1.on(Events.AnimationEnd, function(){
+	            animation1.reverse().start();
+            });
+
+            animation1.start();
+        </script>
+
+    </body>
+</html>

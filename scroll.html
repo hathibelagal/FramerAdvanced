@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+    <head>
+        <script src="framer.js"></script>        
+
+        <style type="text/css">
+            body{
+                background-color: #5cffbe;
+                font-size: 45px;
+                font-family: sans-serif;
+                text-align: center;                
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <script>
+            var device = new Framer.DeviceComponent();
+
+            device.setupContext();
+            device.deviceType = "iphone-5s-silver";
+            device.setDeviceScale(0.3);
+
+            var scroll1 = new ScrollComponent({
+	            width: Screen.width,
+	            height: Screen.height,
+            });
+
+            var layer3 = new Layer({
+	            width: 2000,
+	            height: 2000,
+	            image: "pattern.jpg",
+	            superLayer: scroll1.content // Embed inside content of scroll1
+            });
+        </script>
+
+    </body>
+</html>

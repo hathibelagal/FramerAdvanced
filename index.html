@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+    <head>
+        <script src="framer.js"></script>        
+
+        <style type="text/css">
+            body{
+                background-color: #5cffbe;
+                font-size: 45px;
+                font-family: sans-serif;
+                text-align: center;                
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <script>
+            var device = new Framer.DeviceComponent();
+
+            device.setupContext();
+            device.deviceType = "iphone-5s-silver";
+            device.setDeviceScale(0.3);
+            
+            // Create super-layers
+            var loginScreen = new Layer({
+	            width: Screen.width,
+	            height: Screen.height,
+            });
+
+            var welcomeScreen = new Layer({
+	            width: Screen.width,
+	            height: Screen.height,
+            });
+
+            // The CSS styles to be applied to the layers
+            var style = {
+                paddingTop: "25px",
+                color: "#999",
+                background: "#FFF"
+            };
+
+            //Create the username field
+            var usernameField = new Layer({
+                width: 500,
+                height: 100,
+                y: 100,
+                html: "Username",
+                style: style,
+                superLayer: loginScreen // child of loginScreen
+            });
+            usernameField.centerX();
+
+            // Create the password field
+            var passwordField = new Layer({
+                width: 500,
+                height: 100,
+                y: 220,
+                html: "Password",
+                style: style,
+                superLayer: loginScreen // child of loginScreen
+            });
+            passwordField.centerX();
+
+            // Create the submit button
+            var submitButton = new Layer({
+                width: Screen.width,
+                height: 100,
+                y: Screen.height - 100,
+                html: "LOGIN",
+                style: {
+                    paddingTop: "25px",
+                    color: "#FFFFFF",
+                    fontWeight: "bold"
+                },
+                backgroundColor: "#2196F3",
+                superLayer: loginScreen // child of loginScreen
+            });
+
+            // Create a layer to show a profile pic
+            var profilePic = new Layer({
+                width:400,
+                height: 400,
+                borderRadius: 200,
+                image: 'profile.jpg',
+                y:100,
+                superLayer: welcomeScreen // child of welcomeScreen
+            });
+            profilePic.centerX();
+
+            // Create a layer for the welcome text
+            var text = new Layer({
+                width: 400,
+                height:100,
+                y:600,
+                html: "Welcome Jenny",
+                backgroundColor: "",
+                style: {
+                    color: "#FFFFFF"
+                },
+                superLayer: welcomeScreen // child of welcomeScreen
+            });
+            text.centerX();
+
+            welcomeScreen.visible = false;
+
+            submitButton.on("click", function(){
+
+	            welcomeScreen.opacity = 0;
+	            welcomeScreen.visible = true; // welcomeScreen is still invisible
+								              // because its opacity is zero
+
+	            loginScreen.animate({
+		            properties: {
+			            opacity: 0
+		            }
+	            });
+	            welcomeScreen.animate({
+		            properties: {
+			            opacity: 1
+		            },
+                    time: 2 // Duration of animation is 2 seconds
+	            });
+            });
+
+            //var bg = new BackgroundLayer({
+	         //   image: "bg.jpg"
+            //});
+
+            //bg.blur = 5; // Set the gaussian blur to 5 pixels
+        </script>
+
+    </body>
+</html>
