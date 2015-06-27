@@ -1,4 +1,4 @@
-### Tuts+ Tutorial: Framer.js: Adding Advanced Interactions and Effects to Your Mock-ups
+### Tuts+ Tutorial: Framer.js: Adding Advanced Interactions to Your Mock-ups
 
 #### Instructor: Hathibelagal Ashraff
 
